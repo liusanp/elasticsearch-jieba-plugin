@@ -120,6 +120,7 @@ public class JiebaDict {
                                         while (rs.next()) {
                                             // 通过字段检索
                                             String word = rs.getString("word");
+                                            word = word.replaceAll("\\s+", "");
                                             double freq = rs.getDouble("freq");
                                             addWordAndFreq(wd, word, freq);
                                         }
