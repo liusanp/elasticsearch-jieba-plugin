@@ -7,7 +7,7 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_es_word_dict`;
 CREATE TABLE `sys_es_word_dict`  (
-  `id` bigint(0) NOT NULL COMMENT 'id',
+  `id` bigint(0) NOT NULL AUTO_INCREMENT COMMENT 'id',
   `word` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '自定义分词',
   `freq` int(0) NOT NULL DEFAULT 3 COMMENT '分词权重，默认3',
   `is_enable` tinyint(0) NOT NULL DEFAULT 1 COMMENT '是否启用：0不启用，1启用，默认1',
