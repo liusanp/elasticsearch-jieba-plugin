@@ -1,6 +1,6 @@
 package org.elasticsearch.index.analysis;
 
-import com.huaban.analysis.jieba.JiebaSegmenter;
+import com.huaban.analysis.jieba.JiebaSegmenterDiy;
 import org.apache.lucene.analysis.Analyzer;
 import org.elasticsearch.common.settings.Settings;
 import org.elasticsearch.env.Environment;
@@ -18,12 +18,12 @@ public class JiebaAnalyzerProvider extends AbstractIndexAnalyzerProvider<JiebaAn
                                  Environment environment,
                                  String name,
                                  Settings settings,
-                                 JiebaSegmenter.SegMode mode) {
+                                 JiebaSegmenterDiy.SegMode mode) {
         super(indexSettings, name, settings);
         if (null != mode) {
             jiebaAnalyzer = new JiebaAnalyzer(mode.name());
         } else {
-            jiebaAnalyzer = new JiebaAnalyzer(settings.get("segMode", JiebaSegmenter.SegMode.SEARCH.name()));
+            jiebaAnalyzer = new JiebaAnalyzer(settings.get("segMode", JiebaSegmenterDiy.SegMode.SEARCH.name()));
         }
         JiebaDict.init(environment);
     }
@@ -41,7 +41,7 @@ public class JiebaAnalyzerProvider extends AbstractIndexAnalyzerProvider<JiebaAn
                 environment,
                 s,
                 settings,
-                JiebaSegmenter.SegMode.SEARCH);
+                JiebaSegmenterDiy.SegMode.SEARCH);
 
         return jiebaAnalyzerProvider;
     }
@@ -54,7 +54,7 @@ public class JiebaAnalyzerProvider extends AbstractIndexAnalyzerProvider<JiebaAn
                 environment,
                 s,
                 settings,
-                JiebaSegmenter.SegMode.INDEX);
+                JiebaSegmenterDiy.SegMode.INDEX);
 
         return jiebaAnalyzerProvider;
     }

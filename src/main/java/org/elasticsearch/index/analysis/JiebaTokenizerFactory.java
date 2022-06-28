@@ -1,6 +1,6 @@
 package org.elasticsearch.index.analysis;
 
-import com.huaban.analysis.jieba.JiebaSegmenter;
+import com.huaban.analysis.jieba.JiebaSegmenterDiy;
 import org.apache.lucene.analysis.Tokenizer;
 import org.elasticsearch.common.settings.Settings;
 import org.elasticsearch.env.Environment;
@@ -41,7 +41,7 @@ public class JiebaTokenizerFactory extends AbstractTokenizerFactory {
         JiebaTokenizerFactory jiebaTokenizerFactory = new JiebaTokenizerFactory(indexSettings,
                 environment,
                 settings);
-        jiebaTokenizerFactory.setSegMode(JiebaSegmenter.SegMode.SEARCH.name());
+        jiebaTokenizerFactory.setSegMode(JiebaSegmenterDiy.SegMode.SEARCH.name());
         return jiebaTokenizerFactory;
     }
 
@@ -52,7 +52,7 @@ public class JiebaTokenizerFactory extends AbstractTokenizerFactory {
         JiebaTokenizerFactory jiebaTokenizerFactory = new JiebaTokenizerFactory(indexSettings,
                 environment,
                 settings);
-        jiebaTokenizerFactory.setSegMode(JiebaSegmenter.SegMode.INDEX.name());
+        jiebaTokenizerFactory.setSegMode(JiebaSegmenterDiy.SegMode.INDEX.name());
         return jiebaTokenizerFactory;
     }
 }

@@ -1,7 +1,7 @@
 package org.elasticsearch.index.analysis;
 
-import com.huaban.analysis.jieba.JiebaSegmenter;
-import com.huaban.analysis.jieba.JiebaSegmenter.SegMode;
+import com.huaban.analysis.jieba.JiebaSegmenterDiy;
+import com.huaban.analysis.jieba.JiebaSegmenterDiy.SegMode;
 import com.huaban.analysis.jieba.SegToken;
 import org.apache.logging.log4j.Logger;
 import org.elasticsearch.common.logging.Loggers;
@@ -17,7 +17,7 @@ import java.util.List;
  */
 public class JiebaAdapter implements Iterator<SegToken> {
     private final static Logger log = Loggers.getLogger(JiebaDict.class, "JiebaAdapter");
-    private final static JiebaSegmenter jiebaTagger = new JiebaSegmenter();
+    private final static JiebaSegmenterDiy jiebaTagger = new JiebaSegmenterDiy();
 
     private final SegMode segMode;
 

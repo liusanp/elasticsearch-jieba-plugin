@@ -1,6 +1,6 @@
 package org.elasticsearch.index.analysis;
 
-import com.huaban.analysis.jieba.JiebaSegmenter;
+import com.huaban.analysis.jieba.JiebaSegmenterDiy;
 import org.apache.lucene.analysis.Analyzer;
 
 /**
@@ -15,7 +15,7 @@ public class JiebaAnalyzer extends Analyzer {
      *
      */
     public JiebaAnalyzer() {
-        this(JiebaSegmenter.SegMode.SEARCH.name());
+        this(JiebaSegmenterDiy.SegMode.SEARCH.name());
     }
 
     public JiebaAnalyzer(String segMode) {
